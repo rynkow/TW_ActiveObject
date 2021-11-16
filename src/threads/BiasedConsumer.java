@@ -1,18 +1,22 @@
 package threads;
 
+import activeObject.CompletionFuture;
 import activeObject.Proxy;
+import activeObject.Task;
 
 public class BiasedConsumer extends Consumer{
     protected final int amount;
 
-    public BiasedConsumer(int id, Proxy proxy, int amount) {
-        super(id, proxy, 0);
+    public BiasedConsumer(int id, Proxy proxy, int amount, Task task) {
+        super(id, proxy, 0, task);
         this.amount = amount;
     }
 
     @Override
-    public void consume() {
-        proxy.consume(amount);
+    public void consume() throws InterruptedException {
+        CompletionFuture future =  proxy.consume(amount);
+        task.run();
+        future.waitUntilCompletion();
         accessCounter++;
     }
 }

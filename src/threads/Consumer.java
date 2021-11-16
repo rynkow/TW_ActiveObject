@@ -3,17 +3,18 @@ package threads;
 
 import activeObject.CompletionFuture;
 import activeObject.Proxy;
+import activeObject.Task;
 
 public class Consumer extends Client {
 
-    public Consumer(int id, Proxy proxy, int maxPortion) {
-        super(id, proxy, maxPortion);
+    public Consumer(int id, Proxy proxy, int maxPortion, Task task) {
+        super(id, proxy, maxPortion, task);
     }
 
     public void consume() throws InterruptedException {
         int amount = random.nextInt(maxPortion) + 1;
         CompletionFuture future =  proxy.consume(amount);
-        // TODO dodatkowe zadanie
+        task.run();
         future.waitUntilCompletion();
         accessCounter++;
     }

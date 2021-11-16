@@ -1,27 +1,26 @@
 package activeObject;
 
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.Future;
-
 public class Servant {
     protected int buffer;
     protected final int bufferCapacity;
+    protected Task task;
 
-    protected Servant(int bufferCapacity) {
+    protected Servant(int bufferCapacity, Task task) {
         this.bufferCapacity = bufferCapacity;
         this.buffer = 0;
+        this.task = task;
     }
 
     protected void produce(int amount, CompletionFuture future){
         buffer += amount;
-        // TODO wykonaj intensywne zadanie
+        task.run();
         System.out.println("wyprodukowano " + amount + " el w buforze " + buffer);
         future.complete();
     }
 
     protected void consume(int amount, CompletionFuture future){
         buffer -= amount;
-        // TODO wykonaj intensywne zadanie
+        task.run();
         System.out.println("skonsumowano " + amount + " el w buforze " + buffer);
         future.complete();
     }

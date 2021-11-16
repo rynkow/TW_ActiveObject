@@ -2,17 +2,18 @@ package threads;
 
 import activeObject.CompletionFuture;
 import activeObject.Proxy;
+import activeObject.Task;
 
 public class Producer extends Client {
 
-    public Producer(int id, Proxy proxy, int maxPortion) {
-        super(id, proxy, maxPortion);
+    public Producer(int id, Proxy proxy, int maxPortion, Task task) {
+        super(id, proxy, maxPortion, task);
     }
 
     public void produce() throws InterruptedException {
         int amount = random.nextInt(maxPortion) + 1;
         CompletionFuture future = proxy.produce(amount);
-        // TODO dodatkowe zadanie
+        task.run();
         future.waitUntilCompletion();
         accessCounter++;
     }
