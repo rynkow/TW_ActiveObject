@@ -1,5 +1,7 @@
 package activeObject;
 
+import Task.Task;
+
 public class Servant {
     protected int buffer;
     protected final int bufferCapacity;

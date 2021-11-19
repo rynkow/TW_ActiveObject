@@ -2,7 +2,7 @@ package threads;
 
 import activeObject.CompletionFuture;
 import activeObject.Proxy;
-import activeObject.Task;
+import Task.Task;
 
 public class Producer extends Client {
 
@@ -25,7 +25,7 @@ public class Producer extends Client {
                 produce();
             }
             catch (InterruptedException e){
-                e.printStackTrace();
+                //
             }
         }
     }

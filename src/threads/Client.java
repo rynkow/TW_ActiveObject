@@ -1,9 +1,8 @@
 package threads;
 
 import activeObject.Proxy;
-import activeObject.Task;
+import Task.Task;
 
-import javax.swing.text.TabableView;
 import java.util.Random;
 
 public abstract class Client extends Thread{

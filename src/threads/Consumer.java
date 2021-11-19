@@ -3,7 +3,7 @@ package threads;
 
 import activeObject.CompletionFuture;
 import activeObject.Proxy;
-import activeObject.Task;
+import Task.Task;
 
 public class Consumer extends Client {
 
@@ -26,7 +26,7 @@ public class Consumer extends Client {
                 consume();
             }
             catch (InterruptedException e){
-                e.printStackTrace();
+                //
             }
         }
     }

@@ -1,5 +1,7 @@
 package activeObject;
 
+import Task.Task;
+
 public class Proxy {
     protected final Scheduler scheduler;
     protected final Servant servant;
@@ -10,13 +12,13 @@ public class Proxy {
         this.scheduler.start();
     }
 
-    public CompletionFuture produce(int amount){
+    public CompletionFuture produce(int amount) throws InterruptedException {
         CompletionFuture future = new CompletionFuture();
         scheduler.enqueue(new ProduceRequest(servant, amount, future));
         return future;
     }
 
-    public CompletionFuture consume(int amount){
+    public CompletionFuture consume(int amount) throws InterruptedException {
         CompletionFuture future = new CompletionFuture();
         scheduler.enqueue(new ConsumeRequest(servant, amount, future));
         return future;

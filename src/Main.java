@@ -1,5 +1,5 @@
 import activeObject.Proxy;
-import activeObject.Task;
+import Task.Task;
 import threads.Consumer;
 import threads.Producer;
 
