@@ -3,7 +3,7 @@ package threads;
 
 import activeObject.CompletionFuture;
 import activeObject.Proxy;
-import Task.Task;
+import task.Task;
 
 public class Consumer extends Client {
 

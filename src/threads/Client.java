@@ -1,7 +1,7 @@
 package threads;
 
 import activeObject.Proxy;
-import Task.Task;
+import task.Task;
 
 import java.util.Random;
 

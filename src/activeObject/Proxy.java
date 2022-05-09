@@ -1,6 +1,6 @@
 package activeObject;
 
-import Task.Task;
+import task.Task;
 
 public class Proxy {
     protected final Scheduler scheduler;
@@ -22,5 +22,13 @@ public class Proxy {
         CompletionFuture future = new CompletionFuture();
         scheduler.enqueue(new ConsumeRequest(servant, amount, future));
         return future;
+    }
+
+    public void interruptScheduler(){
+        scheduler.interrupt();
+    }
+
+    public void stopScheduler(){
+        scheduler.stop();
     }
 }

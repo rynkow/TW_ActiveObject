@@ -1,6 +1,6 @@
 package activeObject;
 
-import Task.Task;
+import task.Task;
 
 public class Servant {
     protected int buffer;
@@ -16,14 +16,14 @@ public class Servant {
     protected void produce(int amount, CompletionFuture future){
         buffer += amount;
         task.run();
-        System.out.println("wyprodukowano " + amount + " el w buforze " + buffer);
+//        System.out.println("wyprodukowano " + amount + " el w buforze " + buffer);
         future.complete();
     }
 
     protected void consume(int amount, CompletionFuture future){
         buffer -= amount;
         task.run();
-        System.out.println("skonsumowano " + amount + " el w buforze " + buffer);
+//        System.out.println("skonsumowano " + amount + " el w buforze " + buffer);
         future.complete();
     }
 

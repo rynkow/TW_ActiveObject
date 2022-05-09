@@ -2,7 +2,7 @@ package threads;
 
 import activeObject.CompletionFuture;
 import activeObject.Proxy;
-import Task.Task;
+import task.Task;
 
 public class BiasedProducer extends Producer{
     protected final int amount;

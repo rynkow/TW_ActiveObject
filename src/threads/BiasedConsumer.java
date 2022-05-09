@@ -2,7 +2,7 @@ package threads;
 
 import activeObject.CompletionFuture;
 import activeObject.Proxy;
-import Task.Task;
+import task.Task;
 
 public class BiasedConsumer extends Consumer{
     protected final int amount;

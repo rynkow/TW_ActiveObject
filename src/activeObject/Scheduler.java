@@ -17,8 +17,8 @@ public class Scheduler extends Thread{
             try {
                 MethodRequest methodRequest = queue.dequeue();
                 methodRequest.call();
-            } catch (InterruptedException e) {
-                interrupt();
+            } catch (Exception e) {
+                //
             }
         }
     }
